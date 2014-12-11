@@ -1,0 +1,20 @@
+<div ng-init="pageInit();">
+    </br>
+    <p>批次：</p>
+    <select ng-model = "batch" ng-change = "pageRequest()">
+        <option ng-repeat="bookBatch in batches" value="{{bookBatch}}" ng-selected="bookBatch == '0'">{{bookBatch}}</option>
+    </select>
+    <table class="uk-table">
+
+        <tbody>
+        <tr ng-repeat="bookBarCodeRow in bookBarCodeRows" style="height: 210px">
+            <td><img ng-src="{{bookBarCodeRow.firstBarCode.barCodeUrl}}" width="200px" height="200px"></br><p>{{bookBarCodeRow.firstBarCode.book_id}}</p></br><p>{{bookBarCodeRow.firstBarCode.book_name}}</p></td>
+            <td><img ng-src="{{bookBarCodeRow.secondBarCode.barCodeUrl}}" width="200px" height="200px"></br><p>{{bookBarCodeRow.secondBarCode.book_id}}</p></br><p>{{bookBarCodeRow.secondBarCode.book_name}}</p></td>
+            <td><img ng-src="{{bookBarCodeRow.thirdBarCode.barCodeUrl}}" width="200px" height="200px"></br><p>{{bookBarCodeRow.thirdBarCode.book_id}}</p></br><p>{{bookBarCodeRow.thirdBarCode.book_name}}</p></td>
+            <td><img ng-src="{{bookBarCodeRow.fourthBarCode.barCodeUrl}}" width="200px" height="200px"></br><p>{{bookBarCodeRow.fourthBarCode.book_id}}</p></br><p>{{bookBarCodeRow.fourthBarCode.book_name}}</p></td>
+            <td><img ng-src="{{bookBarCodeRow.fifthBarCode.barCodeUrl}}" width="200px" height="200px"></br><p>{{bookBarCodeRow.fifthBarCode.book_id}}</p></br><p>{{bookBarCodeRow.fifthBarCode.book_name}}</p></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

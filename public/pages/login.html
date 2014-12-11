@@ -1,0 +1,25 @@
+<!--created by Harbon-->
+<!--date 2014-10-26-->
+<form class = "uk-form" ng-submit = "login()">
+    <fieldset>
+        <legend>登录</legend>
+        <br/>
+    </fieldset>
+    <fieldset>
+        <label for = "user"></label>
+        <input name = "user" id = "user" placeholder = "请输入用户名" ng-model = "userName">
+        <br/>
+        <br/>
+        <label for = "password"></label>
+        <input name = "password" id = "password"  type="password" placeholder = "请输入密码" ng-model = "password">
+        <br/>
+        <br/>
+    </fieldset>
+    <fieldset>
+        <p ng-show = "loginError">用户名或密码错误</p>
+    </fieldset>
+    <fieldset>
+        <button class = "uk-button-primary" type="submit" >登录</button>
+    </fieldset>
+
+</form>

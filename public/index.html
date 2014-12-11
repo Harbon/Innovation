@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BooksAdministratorPlatform</title>
+    <link rel = "stylesheet" type = "text/css" href = "./components/uikit/css/uikit.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "./components/uikit/css/components/notify.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "./components/uikit/css/components/search.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "./components/uikit/css/components/autocomplete.min.css">
+</head>
+<body>
+    <div class = "uk-container-center" ng-app = "AdministratorPlatform" style = "margin: 10px">
+        <div class = "uk-navbar"  ng-show = "navShouldShow">
+            <a href = "#" class = "uk-navbar-brand" >图书管理系统</a>
+            <ul class = "uk-navbar-nav">
+                <li class = "{{booksList}}"><a href = "/booksList">全部图书</a></li>
+                <li class = "{{booksInLending}}"><a href = "/booksInLending">已借出图书</a></li>
+                <li class = "{{barCodeScan}}"><a href = "/barCodeScan">自定义二维码生成</a></li>
+                <li class = "{{mutipleBarCode}}"><a href = "/mutipleBarCode">二维码查看</a></li>
+            </ul>
+            <div class="uk-navbar-flip">
+
+                <div class="uk-navbar-content"  ng-show = "searchShouldShow">
+                    <div class="uk-navbar-content" ng-controller="searchCtrl">
+                    <select ng-model = "category">
+                        <option value="1" ng-selected="true">书名</option>
+                        <option value="2">出版社</option>
+                        <option value="3">作者</option>
+                        <option value="4">种类</option>
+                    </select>
+                    <form class="uk-search" ng-submit="search()">
+                        <input class="uk-search-field" type="search" placeholder = "Search" ng-model="keyword">
+
+                    </form>
+                    </div>
+                </div>
+                <div class = "uk-navbar-content" ng-controller="logoutCtrl">
+                    <ul class = "uk-navbar-nav">
+                        <li>
+                            <a  ng-click = "logout()">登出</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class = "uk-container-center" style = "margin-left: 20px;margin-right: 20px">
+            <div ng-view>
+
+            </div>
+        </div>
+
+    </div>
+
+
+<script type = "text/javascript" src = "./components/jquery/dist/jquery.min.js"></script>
+<script type = "text/javascript" src = "./components/uikit/js/uikit.min.js"></script>
+<script type = "text/javascript" src = "./components/angular/angular.min.js"></script>
+<script type = "text/javascript" src = "./components/angular-route/angular-route.min.js"></script>
+<script type = "text/javascript" src = "./components/uikit/js/components/notify.min.js"></script>
+<script type = "text/javascript" src = "./components/uikit/js/components/search.min.js"></script>
+<script type = "text/javascript" src = "./components/uikit/js/components/autocomplete.min.js"></script>
+<script type = "text/javascript" src = "./components/uikit/js/components/pagination.min.js"></script>
+<script type = "text/javascript" src = "./app/AdministratorPlatform.js"></script>
+<script type = "text/javascript" src = "./router/router.js"></script>
+<script type = "text/javascript" src = "./services/requestService.js"></script>
+<script type = "text/javascript" src = "./controllers/barCodeScanCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/booksListCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/booksInLendingCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/loginCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/logoutCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/searchCtrl.js"></script>
+<script type = "text/javascript" src = "./controllers/mutipleBarCodeCtrl.js"></script>
+
+</body>
+</html>

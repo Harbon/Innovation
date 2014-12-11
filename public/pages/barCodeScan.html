@@ -1,0 +1,31 @@
+<div class = "uk-container-center" style="margin-top: 20px" ng-init="paginationHide();barCodeImageLoad()">
+
+    <div class="uk-grid">
+        <div class="uk-width-1-3">&nbsp;</div>
+        <div class="uk-width-1-3">
+            <img height="100%" ng-src="{{DIYBarCodeUrl}}" />
+        </div>
+    </div>
+    </br>
+    </br>
+    <div align="center">
+        <form ng-submit="barCodeImageLoad()">
+            <fieldset>
+                <legend>自定义二维码生成</legend>
+                <br/><br/>
+                <label>书名：</label>
+                <input type="text" placeholder="请输入书名" ng-model="book_name"/>
+                <br/>
+                <br/><br/>
+                <label>书信息：</label>
+                <input type="text" placeholder="请输入书的信息" ng-model = "book_info"/>
+                <br/><br/><br/>
+                <label>书ID：</label>
+                <input type="text" placeholder="请输入ID" ng-model="book_id"/>
+                <br/><br/><br/>
+                <input type="button" class="uk-button-primary" value="生成" ng-click="barCodeImageLoad()">
+            </fieldset>
+
+        </form>
+        </div>
+</div>

@@ -1,0 +1,49 @@
+<div ng-init = "pageInit();">
+
+    <table class = "uk-table">
+        <caption>借出书本总数：{{book_number}}</caption>
+
+        <thead>
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>状态</th>
+            <th>当前借阅人</th>
+            <th>借阅时间</th>
+            <th>应于/天后归还</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "book in books" >
+            <td>
+                {{book.book_name}}
+            </td>
+            <td>{{book.book_author}}</td>
+            <td>
+                <p ng-if = "book.return_at < 0" class="uk-text uk-text-danger">已超期</p>
+                <p ng-if = "book.return_at >= 0" class="uk-text uk-text-success">{{book.book_status}}</p>
+            </td>
+            <td>{{book.user_name}}</td>
+            <td>{{book.created_at}}</td>
+            <td>{{book.return_at}}</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <ul class="uk-pagination" ng-model = "currentPage" ng-show="paginationShouldShow">
+        <li ng-show = "notFirstPage" ng-click = "thePreviousPage(currentPage)">
+            <a ><i class="uk-icon-angle-double-left"></i></a>
+        </li>
+        <!---->
+        <li  ng-repeat = "page in pages" class = "uk-active" >
+            <a class = "uk-active" ng-click = "pageRequest(page)" ng-if = "!(currentPage == page)"><span>{{page}}</span></a>
+            <span  ng-if = "currentPage == page" >{{page}}</span>
+        </li>
+        <!---->
+        <li ng-show = "notLastPage" ng-click = "theNextPage(currentPage)">
+            <a ><i class="uk-icon-angle-double-right"></i></a>
+        </li>
+        <!---->
+    </ul>
+</div>
