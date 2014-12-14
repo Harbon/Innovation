@@ -1,4 +1,4 @@
-<div class = "uk-container-center" style="margin-top: 20px" ng-init="paginationHide();barCodeImageLoad()">
+<div class = "uk-container-center" style="margin-top: 20px" ng-init="paginationHide();barCodeImageLoadInit()">
 
     <div class="uk-grid">
         <div class="uk-width-1-3">&nbsp;</div>
@@ -17,9 +17,6 @@
                 <input type="text" placeholder="请输入书名" ng-model="book_name"/>
                 <br/>
                 <br/><br/>
-                <label>书信息：</label>
-                <input type="text" placeholder="请输入书的信息" ng-model = "book_info"/>
-                <br/><br/><br/>
                 <label>书ID：</label>
                 <input type="text" placeholder="请输入ID" ng-model="book_id"/>
                 <br/><br/><br/>

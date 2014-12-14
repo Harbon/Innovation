@@ -201,13 +201,14 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
         book_id = book.book_id;
         book_name = book.book_name;
     }
+
 //    获取二维码信息
     var getBarCodeInfo = function ($scope) {
-        console.log(book_name);
         $scope.book_name = book_name;
         $scope.book_id = book_id;
-        $scope.book_info = book_info;
-        $scope.DIYBarCodeUrl = 'http://qr.liantu.com/api.php?text='+'{book_name:"'+book_name+'",book_info:"'+book_info+'",book_id:'+book_id+'}';
+        book_name = '';
+        book_id = '';
+        $scope.DIYBarCodeUrl = 'http://qr.liantu.com/api.php?text='+'{book_name:"'+$scope.book_name+'",book_info:"创新实验班",book_id:'+$scope.book_id+'}';
     }
 //   二维码批量生成请求
     var mutipleBarCodePageRequest = function (batch, $scope) {
@@ -216,6 +217,7 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
             url:domain+'admin/getId/'+batch+'/'+$rootScope.administrator.userId+'/'+$rootScope.administrator.password,
             method:'GET'
         }).success(function (books) {
+            console.log(books);
              var bookBarCodeRow= {}
             var bookBarCodeRows= [];
             var mod;
@@ -231,7 +233,7 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
                     case 3:bookBarCodeRow.fourthBarCode = books[i];break;
                     case 4:bookBarCodeRow.fifthBarCode = books[i];break;
                 }
-                if ((i+1)%5 == 0 ) {
+                if ((i+1)%5 == 0 || i == books.length-1 ) {
                     bookBarCodeRows.push(bookBarCodeRow);
                     bookBarCodeRow = {};
                 }
