@@ -122,7 +122,7 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
     }
 //    解析书本生成二维码内容
     var barCodeInfoAnalyse = function (book) {
-        var content = '{book_name:'+book.book_name+',book_Info:'+book.book_Info+',book_id:'+book.book_id+'}';
+        var content = '{"book_name":"'+book.book_name+'","book_Info":"创新实验班"'+',"book_id":"'+book.book_id+'"}';
         return content;
     }
 //    图书添加
@@ -208,7 +208,7 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
         $scope.book_id = book_id;
         book_name = '';
         book_id = '';
-        $scope.DIYBarCodeUrl = 'http://qr.liantu.com/api.php?text='+'{book_name:"'+$scope.book_name+'",book_info:"创新实验班",book_id:'+$scope.book_id+'}';
+        $scope.DIYBarCodeUrl = 'http://qr.liantu.com/api.php?text='+'{"book_name":"'+$scope.book_name+'","book_info":"创新实验班","book_id":"'+$scope.book_id+'"}';
     }
 //   二维码批量生成请求
     var mutipleBarCodePageRequest = function (batch, $scope) {
